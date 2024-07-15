@@ -12,6 +12,6 @@
 		"bindbc-sdl": "static"
 	},
 	"description": "my starfield implementation, in d",
-	"license": "proprietary",
+	"license": "public domain",
 	"name": "starfield-d"
 }
