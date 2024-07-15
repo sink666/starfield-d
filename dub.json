@@ -1,0 +1,17 @@
+{
+	"authors": [
+		"sinkuchan"
+	],
+	"copyright": "Copyright © 2024, sinkuchan",
+	"dependencies": {
+		"bindbc-sdl": "~>1.4.8"
+	},
+	"versions": ["SDL_2_30"],
+	"libs": ["SDL2"],
+	"subConfigurations": {
+		"bindbc-sdl": "static"
+	},
+	"description": "my starfield implementation, in d",
+	"license": "proprietary",
+	"name": "starfield-d"
+}
