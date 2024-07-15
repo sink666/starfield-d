@@ -206,6 +206,7 @@ void doEffect(Stars *s_ref)
             b = Brightness.DIM;
         }
 
+        // reset if oob
         if(sp.x < 0 || sp.x >= WIDTH || (sp.y < 0 || sp.y >= HEIGHT))
         {
             s_ref.star[i] = P_World(uniform(-1.0f, 1.0f), uniform(-1.0f, 1.0f), uniform(-1.0f, 0.0000001f));
