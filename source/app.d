@@ -4,6 +4,29 @@ import std.math;
 import bindbc.sdl;
 
 //
+// begin variables, enums, etc
+//
+
+enum int WIDTH = 800;
+enum int HEIGHT = 600;
+enum int NUM_STARS = 300;
+enum int FOV = 75;
+enum int SPEED = 30;
+static uint[4] palette = [ 0x00000000, 0x00666666, 0x00A8A8A8, 0x00FFFFFF];
+enum Brightness { OFF, DIM, HALF, FULL }
+static P_Screen midp = P_Screen(WIDTH / 2, HEIGHT / 2);
+
+static SDL_Rect targ_rect = { 0, 0, WIDTH, HEIGHT };
+SDL_Window *win_ptr;
+SDL_Texture *framebuffer_ptr;
+SDL_Renderer *renderer_ptr;
+string init_errMsg;
+
+uint[WIDTH * HEIGHT] pixel_buffer;
+int buf_pitch = (WIDTH * uint.sizeof);
+int buf_stride = WIDTH;
+
+//
 // begin structs
 //
 
@@ -46,29 +69,6 @@ struct Stars
         }
     }
 }
-
-//
-// begin variables, enums, etc
-//
-
-enum int WIDTH = 800;
-enum int HEIGHT = 600;
-enum int NUM_STARS = 300;
-enum int FOV = 75;
-enum int SPEED = 30;
-static uint[4] palette = [ 0x00000000, 0x00666666, 0x00A8A8A8, 0x00FFFFFF];
-enum Brightness { OFF, DIM, HALF, FULL }
-static P_Screen midp = P_Screen(WIDTH / 2, HEIGHT / 2);
-
-static SDL_Rect targ_rect = { 0, 0, WIDTH, HEIGHT };
-SDL_Window *win_ptr;
-SDL_Texture *framebuffer_ptr;
-SDL_Renderer *renderer_ptr;
-string init_errMsg;
-
-uint[WIDTH * HEIGHT] pixel_buffer;
-int buf_pitch = (WIDTH * uint.sizeof);
-int buf_stride = WIDTH;
 
 //
 // begin init, main loop functions
